@@ -1,10 +1,9 @@
 <h1> Here are your to do list  </h1>
 
 	<% @list.each do |x| %>
-		Email: <%= x.user.email %> <br>
 		Title: <%= x.title %> <br>
 		Description: <%= x.description %> <br>
-		<%= link_to 'show', user_list_path(@user.id)%>
+		<%= link_to 'show', user_list_path(id: x.id, user_id: @user.id)%>
 		<%= link_to 'edit', edit_user_list_path(id: x.id, user_id: @user.id) %>
 		<%= link_to 'destroy', user_list_path(user_id: @user.id, list_id: x.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
 		<br>

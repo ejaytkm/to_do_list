@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-	
+
 	resources :users do 
-		resources :lists
+		resources :lists do 
+			resources :tasks, only: [:new, :create, :edit, :update, :destory]
+		end 
 	end
 
 	get '/login' => 'sessions#new'

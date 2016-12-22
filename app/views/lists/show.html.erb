@@ -1,1 +1,26 @@
 <h1> Show List </h1>
+
+<%= @list.title %> <br>
+
+To-Do: <br>
+<% n = 1 %>
+<% @list.tasks.where(status: "incomplete").each do |x| %>
+	<%= n %>: <%= x.description %> <%= check_box_tag(@list,true, false, :onclick => "javascript: document.list.submit();") %> <br>
+	<% n += 1 %>
+<% end %>
+
+<br>
+Completed: <br>
+<% n2 = 1 %>
+<% @list.tasks.where(status: "complete").each do |x| %>
+	<%= n2 %>: <%= x.description %> <%= check_box_tag(@list,true, false, :onclick => "javascript: document.list.submit();") %> <br>
+	<% n2 += 1 %>
+<% end %>
+
+
+<br>
+<form action="/users/<%= current_user.id %>/lists/<%= @list.id %>/tasks" method="post">
+Add More Task Here:<br>
+  <input type="text" name="description">
+  <input type="submit" value="Submit">
+</form>
