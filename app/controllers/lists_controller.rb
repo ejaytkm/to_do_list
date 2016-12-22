@@ -2,7 +2,7 @@ class ListsController < ApplicationController
 	def index 		 
 	end
 
-	def show 
+	def show
 	end 
 
 	def new 
@@ -16,7 +16,15 @@ class ListsController < ApplicationController
 		redirect_to "/"
 	end 
 
+	def edit
+		@user = current_user
+		@list = List.find_by_id(params[:id])
+	end
+
 	def update
+		list = List.find_by_id(params[:id])
+		list.update(list_params)
+		redirect_to "/"
 	end 
 
 	def destroy 
@@ -28,7 +36,6 @@ class ListsController < ApplicationController
 private 
 	def list_params 
 		params.require(:list).permit(:title, :description)
-		
 	end
 end
 
