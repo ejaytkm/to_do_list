@@ -1,0 +1,9 @@
+<!--HTML for navbar -->
+<% if current_user.nil?%>
+	<%= link_to "Sign In", login_path %>
+<% else %>
+	<%= current_user.email %>
+	<%= link_to "Sign Out", logout_path %>
+	<%= link_to "Create List", new_user_list_path(current_user.id) %>
+<% end %>
+<a href='/'> Home </a>

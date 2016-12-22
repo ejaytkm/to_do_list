@@ -1,0 +1,13 @@
+<h1> Here are your to do list  </h1>
+
+
+<% if @list.nil? == false %>
+	<% @list.each do |x| %>
+		<%= x.title %> <br>
+		<%= x.description %> <br>
+		<%= link_to 'edit', edit_user_list_path(@user.id) %>
+		<%= link_to 'destroy', user_list_path(user_id: @user.id, list_id: x.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+		<br>
+		<br>
+	<% end %>
+<% end %>
