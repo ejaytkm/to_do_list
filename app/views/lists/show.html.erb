@@ -16,7 +16,7 @@ Incompleted: <br>
 	Completed: <br>
 	<% @list.tasks.where(status: "complete").each do |x| %>
 		<div id="task-<%= x.id%>">
-			<%= x.description %> </strike>
+			<strike> <%= x.description %> </strike>
 			<%= link_to '(incomplete)', user_list_task_path(id: x.id, list_id: x.list, status: 'incomplete'), date: {:confirm => 'Are you sure?'}, :method => :patch, :remove => true, :remote => true %>
 			<%= link_to '(remove)', user_list_task_path(id: x.id, list_id: x.list), data: {:confirm => 'Are you sure?'}, :method => :delete, :remote => true %> 
 		</div>
