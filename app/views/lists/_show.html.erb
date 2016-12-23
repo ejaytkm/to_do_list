@@ -1,0 +1,5 @@
+<div id="task-<%= @task.id %>">
+	<%= @task.description %>
+	<%= link_to '(complete)', user_list_task_path(id: @task.id, list_id: @task.list, status: 'complete'), date: {:confirm => 'Are you sure?'}, :method => :patch, :remove => true, :remote => true %>
+	<%= link_to '(remove)', user_list_task_path(id: @task.id, list_id: @task.list), data: {:confirm => 'Are you sure?'}, :method => :delete, :remote => true %>
+</div>

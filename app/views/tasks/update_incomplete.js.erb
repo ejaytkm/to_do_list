@@ -1,0 +1,2 @@
+$('#complete_tasks').children('#task-<%=@task.id%>').remove();
+$("#incomplete_tasks").append("<%= j render('lists/show') =%>");
