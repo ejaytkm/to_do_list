@@ -1,4 +1,12 @@
-<h1> Here are your to do list  </h1>
+<div id='timeNow'>
+	<h1>
+		<div id='timeSecond'>
+			<%= @time %>
+		</div>
+	</h1>
+</div>
+<br>
+
 <% @list.each do |x| %>
 	Title: <%= x.title %> <br>
 	Description: <%= x.description %> <br>
@@ -8,3 +16,16 @@
 	<br>
 	<br>
 <% end %>
+
+
+<script>
+var time = '<%= @time %>'
+function update()
+  { 
+     $('#timeSecond').replaceWith(time);
+     console.log('helo')
+  }
+$(document).ready(function($){
+  window.setInterval('update()', 60000);
+  });
+</script>

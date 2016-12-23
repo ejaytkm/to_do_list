@@ -3,6 +3,12 @@ class UsersController < ApplicationController
 	end 
 
 	def show 
+		@time = Time.now
+		if @time.hour > 12 
+			@time = "#{@time.hour-12}" + ":" + "#{@time.min}" + "pm"
+		else 
+			@time = "#{@time.hour}" + ":" + "#{@time.min}" + "am"
+		end 
 		@user = current_user
 		@list = List.where(user_id: @user.id)
 	end
