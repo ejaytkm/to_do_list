@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.container { 
+  text-align: center;
+}
 
-
-.main-content { 
-	text-align: center;
+#timeSecond h1 {
+  font-size: 780%;
 }

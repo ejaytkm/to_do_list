@@ -14,7 +14,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "home.scss";
-
+@import "navbar.scss";
 
 body {
 	background: url(/norway.jpg) no-repeat center center fixed; 
@@ -25,12 +25,6 @@ body {
   color: white;
 }
 
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   width:100%;
-}
 
 a {
 	color: white;
@@ -43,3 +37,4 @@ input {
 textarea {
   color:black;
 }
+

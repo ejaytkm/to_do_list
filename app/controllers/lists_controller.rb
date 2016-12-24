@@ -9,6 +9,7 @@ class ListsController < ApplicationController
 
 	def new 
 		@list = List.new
+
 	end 
 
 	def create 
@@ -37,7 +38,7 @@ class ListsController < ApplicationController
 
 private 
 	def list_params 
-		params.require(:list).permit(:title, :description)
+		params.require(:list).permit(:title, :description, :avatar)
 	end
 end
 

@@ -1,3 +1,4 @@
+<%= image_tag @list.avatar.url(:thumb) %> <br>
 <h1> <%= @list.title %> </h1>
 Incompleted: <br>
 <div id='incomplete_tasks'>
@@ -24,8 +25,8 @@ Incompleted: <br>
 </div>
 
 <br>
-<form id='theForm' data-remote='true' action="/users/<%= current_user.id %>/lists/<%= @list.id %>/tasks" method="post">
-Add Some Task Here:<br>
+<form id='theForm' data-remote='true' action="/users/<%= current_user.id %>/lists/<%= @list.id %>/tasks" method="post"> 
+	Add Some Task Here:<br>
   <input type="text" name="description">
   <input type="submit" value="Submit">
 </form> 

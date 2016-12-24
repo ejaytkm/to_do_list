@@ -15,15 +15,15 @@ class ApplicationController < ActionController::Base
 		@time = Time.now
 		if @time.hour > 12 
 			if @time.min > 9
-				@time = "#{@time.hour-12}" + ":" + "#{@time.min}" + "pm"
+				@time = "#{@time.hour-12}" + ":" + "#{@time.min}" 
 			else
-				@time = "#{@time.hour-12}" + ":" + "0" + "#{@time.min}" + "pm" 
+				@time = "#{@time.hour-12}" + ":" + "0" + "#{@time.min}"   
 			end
 		else 
 			if @time.min > 9
-				@time = "#{@time.hour}" + ":" + "#{@time.min}" + "am"
+				@time = "#{@time.hour}" + ":" + "#{@time.min}" 
 			else
-				@time = "#{@time.hour}" + ":" + "0" + "#{@time.min}" + "am"
+				@time = "#{@time.hour}" + ":" + "0" + "#{@time.min}" 
 			end
 		return @time
 		end 
