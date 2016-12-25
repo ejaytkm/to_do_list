@@ -1,0 +1,33 @@
+<div class='container'>
+	<div class='main-content'>
+		<div id='timeSecond'>
+		<i class='icon-sun'> </i>
+			<h1><%= time_now %></h1>
+				<% if time_now.scan("pm").nil? %> 
+			<h2><%= "Good Morning," + " " + "#{@user.email.capitalize}" %></h2>
+				<% else %>
+			<h2><%= "Good Evening," + " " + "#{@user.email.capitalize}" %></h2>
+				<% end %>
+		</div>
+	<br>
+
+		<% @list.reverse.each do |x| %>
+		<div id='box'>
+			<%= image_tag x.avatar.url(:thumb) %> <br>
+		</div>
+			Title: <%= x.title %> <br>
+			Description: <%= x.description %> <br>
+			<%= link_to 'show', user_list_path(id: x.id, user_id: @user.id)%>
+			<%= link_to 'edit', edit_user_list_path(id: x.id, user_id: @user.id) %>
+			<%= link_to 'delete', user_list_path(user_id: @user.id, list_id: x.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+			<br>
+			<br>
+		<% end %>
+	</div>
+</div>
+
+<script>
+	setTimeout(function(){
+	   window.location.reload(1);
+	}, 90000);
+</script>

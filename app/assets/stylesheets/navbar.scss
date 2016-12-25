@@ -1,0 +1,46 @@
+footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   width:100%;
+   background-color: transparent;
+   padding: 0px 10px 10px 10px;
+}
+
+footer #float-right {
+  float: right;
+}
+
+#float-right .drop-up {
+  top: auto;
+  left: -43%;
+  right: 100%;
+  bottom: 100% !important;
+}
+
+footer #float-left {
+  float: left;
+}
+
+#float-left .drop-up {
+  top: auto;
+  right: 100%;
+  bottom: 100% !important;
+}
+
+#float-left .btn{
+  background-color: transparent;
+  border: none;
+  width: auto;
+}
+
+#gear {
+  height: 30px;
+  width: 30px;
+}
+
+#span-this { 
+  color: white;
+
+  padding-left: 10px;
+}

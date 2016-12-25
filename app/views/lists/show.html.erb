@@ -1,0 +1,34 @@
+
+<%= image_tag @list.avatar.url(:thumb) %> <br>
+<h1> <%= @list.title %> </h1>
+Incompleted: <br>
+<div id='incomplete_tasks'>
+	<% @list.tasks.where(status: "incomplete").each do |x| %>
+		<div id="task-<%= x.id%>">
+			<%= x.description %>
+			<%= link_to '(complete)', user_list_task_path(id: x.id, list_id: x.list, status: 'complete'), date: {:confirm => 'Are you sure?'}, :method => :patch, :remove => true, :remote => true %>
+			<%= link_to '(remove)', user_list_task_path(id: x.id, list_id: x.list), data: {:confirm => 'Are you sure?'}, :method => :delete, :remote => true %> 
+		</div>
+	<% end %>
+</div>
+
+<br>
+
+<div id='complete_tasks'>
+	Completed: <br>
+	<% @list.tasks.where(status: "complete").each do |x| %>
+		<div id="task-<%= x.id%>">
+			<strike> <%= x.description %> </strike>
+			<%= link_to '(incomplete)', user_list_task_path(id: x.id, list_id: x.list, status: 'incomplete'), date: {:confirm => 'Are you sure?'}, :method => :patch, :remove => true, :remote => true %>
+			<%= link_to '(remove)', user_list_task_path(id: x.id, list_id: x.list), data: {:confirm => 'Are you sure?'}, :method => :delete, :remote => true %> 
+		</div>
+	<% end %>
+</div>
+
+<br>
+<form id='theForm' data-remote='true' action="/users/<%= current_user.id %>/lists/<%= @list.id %>/tasks" method="post"> 
+	Add Some Task Here:<br>
+  <input type="text" name="description">
+  <input type="submit" value="Submit">
+</form> 
+
