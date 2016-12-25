@@ -18,6 +18,7 @@
 //= require local_time
 
 $( "#button-left" ).click(function() {
+	console.log('hello');
   $('#gear').animate({  borderSpacing: -90 }, {
     step: function(now,fx) {
       $(this).css('transform','rotate('+now+'deg)');  

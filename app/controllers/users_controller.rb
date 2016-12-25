@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 		@user = current_user
 
 			#forcastAPI from darkcloudskys.net
-		@weather = ForecastIO.forecast(3.1390, 101.6869) 
-		@weather_current = @weather[:currently]
+		# @weather = ForecastIO.forecast(3.1390, 101.6869) 
+		# @weather_current = @weather[:currently]
 		@list = List.where(user_id: @user.id)
 	end
 
