@@ -1,7 +1,7 @@
 <footer>
   <div id="footer">
     <p class="text-muted credit">
-
+    
         <div class="btn-group" id='float-left'>
             <button id='button-left' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
               <img id='gear' src='/icons/setting.png'> <span id="span-this"> Norway, Borealis </span>
@@ -42,14 +42,4 @@
   </div>
 </footer>
 
-<script> 
-$( "#button-left" ).click(function() {
-  $('#gear').animate({  borderSpacing: -90 }, {
-    step: function(now,fx) {
-      $(this).css('transform','rotate('+now+'deg)');  
-    },
-    duration:'slow'
-},'linear');
-});
 
-</script>

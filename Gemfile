@@ -58,4 +58,6 @@ gem 'local_time'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 gem "mini_magick"
+gem "figaro"
+gem 'forecast_io' 
 

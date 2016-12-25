@@ -1,6 +1,7 @@
 <div class='container'>
 	<div class='main-content'>
 		<div id='timeSecond'>
+		<i class='icon-sun'> </i>
 			<h1><%= time_now %></h1>
 				<% if time_now.scan("pm").nil? %> 
 			<h2><%= "Good Morning," + " " + "#{@user.email.capitalize}" %></h2>
