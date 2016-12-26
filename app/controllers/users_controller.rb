@@ -4,11 +4,10 @@ class UsersController < ApplicationController
 
 	def show 
 		@user = current_user
-
-			#forcastAPI from darkcloudskys.net
-		@weather = ForecastIO.forecast(3.1390, 101.6869) 
-		@weather_current = @weather[:currently]
-		@list = List.where(user_id: @user.id)
+		##forcastAPI from darkcloudskys.net
+		# @weather = ForecastIO.forecast(3.1390, 101.6869) 
+		# @weather_current = @weather[:currently]
+		@list = List.where(user_id: @user.id).paginate(page: params[:page]).order('id DESC').per_page(2)
 	end
 
 	def new 
@@ -27,10 +26,9 @@ class UsersController < ApplicationController
 	def update 
 	end 
 
-
-
 	def destroy 
 	end 
+
 
 private 
 

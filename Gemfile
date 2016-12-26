@@ -60,4 +60,6 @@ gem 'rmagick'
 gem "mini_magick"
 gem "figaro"
 gem 'forecast_io' 
+gem 'will_paginate', '~> 3.1.0'
+
 

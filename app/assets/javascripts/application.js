@@ -16,14 +16,3 @@
 //= require turbolinks
 //= require_tree .
 //= require local_time
-
-$( "#button-left" ).click(function() {
-  $('#gear').animate({  borderSpacing: -90 }, {
-    step: function(now,fx) {
-      $(this).css('transform','rotate('+now+'deg)');  
-    },
-    duration:'slow'
-	},'linear');
-	$('#')
-});
-
