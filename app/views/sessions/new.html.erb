@@ -1,11 +1,11 @@
-<h1>Login</h1>
-
+<div class='container'>
+<h1>Login</h1> <br>
 <%= form_tag '/login' do %>
 
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-
+  <%= text_field_tag :email  %> <br>
+  <%= password_field_tag :password  %> <br> <br>
+  <%= submit_tag "Submit", class: "btn-primary", id: "login-button" %>
 <% end %>
+<button type='button' class='btn-primary' id='login-button'><%= link_to "Sign Up", sign_up_path %></button>
+</div>
 
-<%= link_to "Sign Up", sign_up_path %>
