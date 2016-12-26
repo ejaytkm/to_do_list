@@ -3,15 +3,21 @@ class UsersController < ApplicationController
 	end 
 
 	def show 
+
 		@user = current_user
 		##forcastAPI from darkcloudskys.net
 		# @weather = ForecastIO.forecast(3.1390, 101.6869) 
 		# @weather_current = @weather[:currently]
-		if params[:search].nil? == true 
-			@list = List.where(user_id: @user.id).paginate(page: params[:page]).order('id DESC').per_page(3)
-		else 
-			@list = List.search_title_description(params[:search]).paginate(page: params[:page]).order('id DESC').per_page(2)
-		end
+
+		if @user.roles == "user"
+			if params[:search].nil? == true 
+				@list = List.where(user_id: @user.id).paginate(page: params[:page]).order('id DESC').per_page(3)
+			else 
+				@list = List.search_title_description(params[:search]).paginate(page: params[:page]).order('id DESC').per_page(2)
+			end
+		else #this is for admins and heaven 
+			@user_all = User.all.paginate(page: params[:page]).order('id DESC').per_page(8)
+		end 
 
 	end
 

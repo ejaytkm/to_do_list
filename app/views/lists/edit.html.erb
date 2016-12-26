@@ -1,14 +1,15 @@
-<h1> This is the edit </h1>
+<div class='container'>
+	<h1> This is the edit </h1>
+	<%= form_for [@user, @list], url: {action: "update"}  do |f| %>
+
+		<%= f.label :Title  %><br>
+		<%= f.text_field :title, size: "60x2" %><br>
 
 
-<%= form_for [@user, @list], url: {action: "update"}  do |f| %>
+		<%= f.label :Description %><br>
+		<%= f.text_area :description, size: "60x6" %><br>
 
-	<%= f.label :Title  %><br>
-	<%= f.text_field :title, size: "60x2" %><br>
-
-
-	<%= f.label :Description %><br>
-	<%= f.text_area :description, size: "60x6" %><br>
-
-	<%= f.submit "Edit Campaign"%>
-<% end %>
+		<%= f.file_field :avatar %>
+		<%= f.submit "Edit Campaign"%>
+	<% end %>
+</div>

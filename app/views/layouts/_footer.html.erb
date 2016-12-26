@@ -21,22 +21,11 @@
         </div>
 
         <div class="btn-group" id='float-right'>
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                Create Task <span class="caret caret-up"></span>
-            </button>
-            <% if current_user.nil? %>
-              <ul class="dropdown-menu drop-up" role="menu">
-                  <li><p style='color: black;'>Please sign in before you create a list</p></li>
-              </ul>
-            <% else %>
-              <ul class="dropdown-menu drop-up" role="menu">
-                  <li><%= link_to "Create List", new_user_list_path(current_user.id)%></li>
-                  <li><%= link_to "Create List", new_user_list_path(current_user.id)%></li>
-                  <li><%= link_to "Create List", new_user_list_path(current_user.id)%></li>
-                  <li class="divider"></li>
-                  <li><%= link_to "Create List", new_user_list_path(current_user.id)%></li>
-              </ul>
-            <% end %>
+          <% if current_user.nil? %>
+                  <img id='notepad' src='/icons/notepad2.png' > Sign In !
+          <% else %>
+              <a href="/users/<%= current_user.id %>/lists/new"> <img id='notepad' src='/icons/notepad2.png' ></a>
+          <% end %>
         </div>
     </p>
   </div>

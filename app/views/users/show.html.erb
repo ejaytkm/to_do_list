@@ -1,37 +1,69 @@
-<div class='container'>
-	<div class='main-content'>
-		<div id='timeSecond'>
-			<h1><%= time_now %></h1>
-				<% if time_now.scan("pm").nil? %> 
-			<h2><%= "Good Morning," + " " + "#{@user.email.capitalize}" %></h2>
-				<% else %>
-			<h2><%= "Good Evening," + " " + "#{@user.email.capitalize}" %></h2>
-				<% end %>
-		</div>
+<% if @user.roles == "user" %>	
+	<div class='container'>
+		<div class='main-content'>
+			<div id='timeSecond'>
+				<h1><%= time_now %></h1>
+					<% if time_now.scan("pm").nil? %> 
+				<h2><%= "Good Morning," + " " + "#{@user.email.capitalize}" %></h2>
+					<% else %>
+				<h2><%= "Good Evening," + " " + "#{@user.email.capitalize}" %></h2>
+					<% end %>
+			</div>
 
-		<br>
-		<br>
+			<br>
+			<br>
 
-		<div class='row' id='list-row'>
-			<% @list.each do |x| %>
-				<div class='col-md-4'>
-					<div class= id='box'>
-						<%= image_tag x.avatar.url(:thumb) %> <br>
-					</div>
-						Title: <%= x.title %> <br>
-						Description: <%= x.description %> <br>
-						<%= link_to 'show', user_list_path(id: x.id, user_id: @user.id)%>
-						<%= link_to 'edit', edit_user_list_path(id: x.id, user_id: @user.id) %>
-						<%= link_to 'delete', user_list_path(user_id: @user.id, list_id: x.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+			<div class='row' id='list-row'>
+				<% @list.each do |list| %>
+					<div class='col-md-4'>
+						<div class= id='box'>
+							<a href='/users/<%= list.user.id %>/lists/<%= list.id %>' ><%= image_tag list.avatar.url(:thumb) %></a>
 						</div>
-			<% end %>
-		</div>
-				<%= will_paginate @list, renderer: BootstrapPagination::Rails  %>
-	</div>
-</div>
+							Title: <%= list.title %> <br>
+							Description: <%= list.description %> <br>
+							<%= link_to 'edit', edit_user_list_path(id: list.id, user_id: @user.id) %>
+							<%= link_to 'delete', user_list_path(user_id: @user.id, list_id: list.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+							</div>
+				<% end %>
+			</div>
 
-<script>
-	setTimeout(function(){
-	   window.location.reload(1);
-	}, 90000);
-</script>
+			<%= will_paginate @list, renderer: BootstrapPagination::Rails  %>
+		</div>
+	</div>
+
+<% else %> <!--admin controller -->
+
+	<div class='container'>
+		<h1> Welcome Back Boss, This is Heaven </h1>
+		<br>
+		<br>
+		<table class="table">
+	    <thead>
+	      <tr>
+	        <th>Email</th>
+	        <th>Roles</th>
+	        <th>Created at</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    <% @user_all.each do |list| %>
+	      <tr>
+	        <td><%= list.email %></td>
+	        <td><%= list.roles %></td>
+	        <td><%= list.created_at %></td>
+	      </tr>
+	    <% end %>
+	    </tbody>
+	  </table>
+	  <%= will_paginate @user_all, renderer: BootstrapPagination::Rails  %>
+  </div>
+
+<% end %>
+
+
+	<script>
+		setTimeout(function(){
+		   window.location.reload(1);
+		}, 90000);
+	</script>
+
