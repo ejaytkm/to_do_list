@@ -14,7 +14,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "home.scss";
-@import "navbar.scss";
+@import "navbar_footer.scss";
+@import "list.scss";
 
 body {
 	background: url(/norway.jpg) no-repeat center center fixed; 
@@ -25,6 +26,10 @@ body {
   color: white;
 }
 
+#body {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
 
 a {
 	color: white;

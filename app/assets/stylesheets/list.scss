@@ -1,3 +1,29 @@
 // Place all the styles related to the list controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-danger {
+	float: right;
+}
+
+.btn-success {
+	float: right;
+}
+
+#task_list_image {
+	height: 150%;
+	width: 100%;
+	border: 7.5px solid white;
+	border-bottom: 30px solid white;
+	border-radius: 5px;
+	transform: rotate(-2deg);
+}
+
+.task {
+	margin: 7.5px;
+}
+
+#task-list { 
+	text-align: left;
+}
+

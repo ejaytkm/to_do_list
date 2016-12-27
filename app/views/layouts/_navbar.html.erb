@@ -1,4 +1,5 @@
-<div class="navbar">
+<nav>
+<div class="navbar navbar-fixed-top">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <span class="sr-only">Toggle navigation</span>
@@ -13,29 +14,22 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <div class="col-sm-3 col-md-3">
         <!-- search form -->
-        <form class="navbar-form" role="search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="q">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-        </div>
-        </form>
-        
+        <% if current_user.nil? == false %>
+          <form class="navbar-form" role="search" action="/users/<%= current_user.id %>" method="get">
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="search">
+              <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+          </div>
+          </form>
+      <% end %>
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
+        <a><%= "#{@weather.timezone}" + "#{@current_weather.icon}" + "#{@current_weather.temperature}" + "#{@current_weather.summary}" %></a>
       </li>
     </ul>
   </div>
-</nav>
 </div>
-
+</nav>
